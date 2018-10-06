@@ -1,24 +1,59 @@
-# README
+## Development Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Clone the repo
+```
+git clone git@github.com:ghanshyamanand/condingninja.git
+```
 
-Things you may want to cover:
+### Install dependencies (ensure bundler is installed)
+```
+cd schoolbook
+bundle install
+```
 
-* Ruby version
+### CREATE database config (sample config is in config/database_sample.yml)
+```
+cp config/database_sample.yml config/database.yml
+# make the appropirate changes if necessary
+```
 
-* System dependencies
+### Setup DB
 
-* Configuration
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-* Database creation
 
-* Database initialization
+### MailRoom
+Change mail_room.yml
+Make sure to delivery_url in mail_room.yml file
+```
+http://localhost:3000/inbox
+```
 
-* How to run the test suite
+### Start mail
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+mail_room -c config/mail_room.yml
+```
 
-* Deployment instructions
+### Logs
+Command to see logs
+```
+tail -f production.log
+tail -f development.log
+```
 
-* ...
+
+### ProcFile
+make changes in procfile as per your need and run foreman as follows
+```
+foreman start
+```
+
+### Some of Codes we use
+```
+* N.I.U:- Not In Use anymore.
+```

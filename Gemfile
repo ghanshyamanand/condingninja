@@ -62,6 +62,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem "lol_dba"
   gem 'mailcatcher'
+  gem "foreman"
 end
 
 group :test do
