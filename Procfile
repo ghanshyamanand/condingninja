@@ -1,1 +1,1 @@
-mail_room: mail_room -c config/mail_room.yml
+console: mail_room -c config/mail_room.yml
