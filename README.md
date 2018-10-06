@@ -7,7 +7,7 @@ git clone git@github.com:ghanshyamanand/condingninja.git
 
 ### Install dependencies (ensure bundler is installed)
 ```
-cd schoolbook
+cd condingninja
 bundle install
 ```
 
