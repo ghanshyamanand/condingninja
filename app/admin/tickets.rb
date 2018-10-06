@@ -10,4 +10,15 @@ ActiveAdmin.register Ticket do
     end
     f.actions
   end
+
+  index do
+    id_column
+    column :subject
+    column :from_email
+    column :agent
+    column :reply_status
+    column :assigned_at
+    actions
+  end
+
 end

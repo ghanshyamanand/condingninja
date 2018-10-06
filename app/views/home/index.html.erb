@@ -2,25 +2,29 @@
 <br>
 <br>
 <div class="container">
-  <table class="table table-striped">
-    <caption>My Tickets</caption>
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">From</th>
-        <th scope="col">Subject</th>
-        <th scope="col">Assigned at</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-      </tr>
-    </tbody>
-  </table>
+  <% if @tickets.present? %>
+    <table class="table table-striped">
+      <caption>My Tickets</caption>
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">From</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Assigned at</th>
+          <th scope="col">Reply Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tickets.each do |ticket| %>
+          <tr>
+            <th scope="row"><%= ticket.id %></th>
+            <td><%= ticket.from_email %></td>
+            <td><%= ticket.subject %></td>
+            <td><%= ticket.assigned_at.strftime("%d-%B-%Y | %T%:z") %> </td>
+            <td><%= ticket.reply_status ? "Yes" : "No" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>
