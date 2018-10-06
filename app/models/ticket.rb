@@ -3,7 +3,6 @@ class Ticket < ApplicationRecord
   validates :subject,
             :from_email,
             :body,
-            :interest_rate,
             presence: true
 
 
