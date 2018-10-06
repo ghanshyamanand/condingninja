@@ -1,4 +1,15 @@
 class Ticket < ApplicationRecord
+
+  validates :subject,
+            :from_email,
+            :body,
+            :interest_rate,
+            presence: true
+
+
+
+  belongs_to :agent
+
 end
 
 # == Schema Information

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_06_080359) do
+ActiveRecord::Schema.define(version: 2018_10_06_084844) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2018_10_06_080359) do
     t.string "from_email"
     t.text "body"
     t.text "reply_body"
-    t.boolean "reply_status"
+    t.boolean "reply_status", default: false
     t.integer "agent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -3,6 +3,10 @@ class Agent < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
+  validates :name, presence: true
+  has_many :tickets, dependent: :destroy
+
+
 end
 
 # == Schema Information
