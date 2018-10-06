@@ -1,0 +1,45 @@
+<%= render 'navbar' %>
+<br><br>
+<div class="container">
+  <h2>Ticket Detail</h2>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Subject</td>
+        <td><%= @ticket.subject %></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><%= @ticket.from_email %></td>
+      </tr>
+      <tr>
+        <td>Body</td>
+        <td><%= @ticket.body.html_safe %></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <b>Replies</b>
+  <ol>
+    <% @ticket.ticket_replies.each do |ticket_reply| %>
+      <hr>
+      <li>
+        <%= ticket_reply.body %>
+      </li>
+    <% end %>
+  </ol>
+  <br>
+  <br>
+  <b>New Reply</b>
+  <%= form_tag reply_ticket_path, :remote  => true, :method => :post  do -%>
+    <%= text_area_tag 'reply_body', nil, rows: 5, cols: 135 %>
+    <button name="button" type="submit">Reply</button>
+  <% end %>
+</div>
+

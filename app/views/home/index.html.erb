@@ -12,6 +12,7 @@
           <th scope="col">Subject</th>
           <th scope="col">Assigned at</th>
           <th scope="col">Reply Status</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +23,9 @@
             <td><%= ticket.subject %></td>
             <td><%= ticket.assigned_at.strftime("%d-%B-%Y | %T%:z") %> </td>
             <td><%= ticket.reply_status ? "Yes" : "No" %></td>
+            <td>
+              <%= link_to "Reply", detail_ticket_path(ticket)  %>
+            </td>
           </tr>
         <% end %>
       </tbody>

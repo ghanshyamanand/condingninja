@@ -8,6 +8,7 @@ class Ticket < ApplicationRecord
 
 
   belongs_to :agent, optional: true
+  has_many :ticket_replies, dependent: :destroy
 
   before_save :set_assigned_at, if: lambda{|ticket| ticket.agent_id.present? }
 
@@ -24,6 +25,14 @@ class Ticket < ApplicationRecord
     self.assigned_at = Time.now
   end
 
+  def send_and_save_reply(reply_body, new_mail, current_agent)
+    if new_mail.deliver!
+      ticket_reply = ticket_replies.new
+      ticket_reply.body = reply_body
+      ticket_reply.from_email = current_agent.email
+      self.update(reply_status: true) if ticket_reply.save
+    end
+  end
 end
 
 # == Schema Information

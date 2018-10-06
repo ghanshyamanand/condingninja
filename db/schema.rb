@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_06_090804) do
+ActiveRecord::Schema.define(version: 2018_10_06_193426) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -51,11 +51,18 @@ ActiveRecord::Schema.define(version: 2018_10_06_090804) do
     t.index ["reset_password_token"], name: "index_agents_on_reset_password_token", unique: true
   end
 
+  create_table "ticket_replies", force: :cascade do |t|
+    t.text "body"
+    t.string "from_email"
+    t.integer "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.string "subject"
     t.string "from_email"
     t.text "body"
-    t.text "reply_body"
     t.boolean "reply_status", default: false
     t.integer "agent_id"
     t.datetime "created_at", null: false

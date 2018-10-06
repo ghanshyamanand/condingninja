@@ -6,5 +6,12 @@ Rails.application.routes.draw do
   root 'home#index'
   post 'inbox', :to => 'tickets#inbox', :as => :tickets_index
 
+  resources :tickets do
+    member do
+      get 'detail'
+      post 'reply'
+    end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
